@@ -1,4 +1,4 @@
-h1 {
+.h1 {
   color: violet;
 }
 .par1 {
@@ -8,4 +8,21 @@ h1 {
 .par2 {
   color: pink;
   font-family: "Verdana";
+}
+h1 {
+  text-align: center;
+}
+.gorTitle {
+  font-size: 110px;
+}
+
+.gorPar {
+  width: 50%;
+  margin: 0 20%;
+  padding: 100px 5%;
+  border: 2px solid;
+  border-radius: 20px;
+  line-height: 2;
+  font-style: italic;
+  text-align: justify;
 }
