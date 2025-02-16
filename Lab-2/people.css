@@ -1,0 +1,21 @@
+person {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  color: grey;
+}
+
+age,
+height,
+weight,
+gender {
+  display: block;
+  margin-left: 40px;
+  margin-bottom: 10px;
+}
+name {
+  display: block;
+  color: black;
+  font-weight: bold;
+  margin: 20px;
+  font-size: 20px;
+}

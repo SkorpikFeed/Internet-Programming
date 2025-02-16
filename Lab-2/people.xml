@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE people SYSTEM "people.dtd">
+<?xml-stylesheet type="text/xsl" href="people.xsl"?>
+<?xml-stylesheet type="text/css" href="people.css"?>
+<people>
+    <person id='p001'>
+        <name>Іван Іванович Папая</name>
+        <age>28</age>
+        <height>180</height>
+        <weight>75</weight>
+        <gender>Чоловік</gender>
+    </person>
+    <person id="p002">
+        <name>Василь Васильович Манго</name>
+        <age>72</age>
+        <height>143</height>
+        <weight>120</weight>
+        <gender>Чоловік</gender>
+    </person>
+        <person id="p003">
+        <name>Анна Анатоліївна Цитрус</name>
+        <age>32</age>
+        <height>176</height>
+        <weight>74</weight>
+        <gender>Жінка</gender>
+    </person>
+</people>
