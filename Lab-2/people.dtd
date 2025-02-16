@@ -1,0 +1,8 @@
+<!ELEMENT people (person+)>
+<!ELEMENT person (name, age, height, weight, gender)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT age (#PCDATA)>
+<!ELEMENT height (#PCDATA)>
+<!ELEMENT weight (#PCDATA)>
+<!ELEMENT gender (#PCDATA)>
+<!ATTLIST person id ID #REQUIRED>
