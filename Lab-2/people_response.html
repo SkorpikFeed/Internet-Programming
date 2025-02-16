@@ -1,0 +1,31 @@
+<html>
+  <body>
+    <p id="content"></p>
+    <script>
+      function loadXMLDoc(filename) {
+        let xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+          if (this.readyState == 4 && this.status == 200) {
+            displayXML(xhttp.responseXML);
+          }
+        };
+        xhttp.open("GET", "people.xml", true);
+        xhttp.send();
+      }
+
+      function displayXML(xml) {
+        let txt = "";
+        path = '//person[gender="Жінка"]/name';
+        let nodes = xml.evaluate(path, xml, null, XPathResult.ANY_TYPE, null);
+        let result = nodes.iterateNext();
+        while (result) {
+          txt += result.childNodes[0].nodeValue + "<br>";
+          result = nodes.iterateNext();
+        }
+        document.getElementById("content").innerHTML = txt;
+      }
+
+      loadXMLDoc("people.xml");
+    </script>
+  </body>
+</html>
