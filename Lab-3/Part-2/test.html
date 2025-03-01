@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Перевірка усного рахунку</title>
+  </head>
+  <body>
+    <h1 class="title">Математичний калькулятор</h1>
+
+    <!-- Main calculator -->
+    <div class="container">
+      <!-- Range options -->
+      <div class="range-container">
+        <select class="range" id="rangeSelect">
+          <option value="10">0-10</option>
+          <option value="20">0-20</option>
+          <option value="27">0-27</option>
+          <option value="100">0-100</option>
+          <option value="500">0-500</option>
+        </select>
+      </div>
+      <hr />
+      <!-- Result window -->
+      <div class="result-container">
+        <code id="firstOperand"></code>
+        <code id="signOperand">&nbsp;</code>
+        <code id="secondOperand"></code>
+      </div>
+      <div style="display: flex; justify-content: center">
+        <div id="result"></div>
+      </div>
+      <hr />
+      <!-- Operation keyboard -->
+      <div class="keyboard" id="keyboard1">
+        <button type="button" onclick="setSignAndRun('+')">+</button>
+        <button type="button" onclick="setSignAndRun('-')">-</button>
+        <button type="button" onclick="setSignAndRun('*')">*</button>
+      </div>
+      <!-- Main keyboard -->
+      <div class="keyboard" id="keyboard2">
+        <button type="button" value="1" onclick="inputSign(1)">1</button>
+        <button type="button" value="2" onclick="inputSign(2)">2</button>
+        <button type="button" value="3" onclick="inputSign(3)">3</button>
+        <button type="button" value="4" onclick="inputSign(4)">4</button>
+        <button type="button" value="5" onclick="inputSign(5)">5</button>
+        <button type="button" value="6" onclick="inputSign(6)">6</button>
+        <button type="button" value="7" onclick="inputSign(7)">7</button>
+        <button type="button" value="8" onclick="inputSign(8)">8</button>
+        <button type="button" value="9" onclick="inputSign(9)">9</button>
+        <button type="button" value="0" onclick="inputSign(0)">0</button>
+        <button type="submit" id="submit" onclick="submit()">Submit</button>
+      </div>
+    </div>
+  </body>
+  <script src="script.js"></script>
+</html>
