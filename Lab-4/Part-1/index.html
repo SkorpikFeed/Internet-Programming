@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Forms</title>
+  </head>
+  <body>
+    <h1>Фізичне випробування</h1>
+    <form id="formPage">
+      <label for="name">Введіть ваше ім'я</label>
+      <input type="text" name="name" id="name" />
+
+      <label for="surname">Введіть ваше прізвище</label>
+      <input type="text" id="surname" name="surname" />
+
+      <label for="email">Введіть вашу пошту</label>
+      <input type="email" name="email" id="email" />
+
+      <label for="age">Введіть ваш вік</label>
+      <input type="number" name="age" id="age" max="100" min="1" />
+
+      <label>Оберіть стать</label>
+      <div>
+        <input type="radio" name="gender" id="genderMale" value="Male" />
+        <label for="genderMale">Чоловік</label>
+
+        <input type="radio" name="gender" id="genderFemale" value="Female" />
+        <label for="genderFemale">Жінка</label>
+      </div>
+
+      <label>Які вправи ви регулярно виконуєте?</label>
+      <div>
+        <input type="checkbox" name="exercises" id="pushups" />
+        <label for="pushups">Віджимання</label>
+        <input type="checkbox" name="exercises" id="squats" />
+        <label for="squats">Присідання</label>
+        <input type="checkbox" name="exercises" id="plank" />
+        <label for="plank">Планка</label>
+      </div>
+
+      <label>Які види кардіо ви практикуєте?</label>
+      <div>
+        <input type="checkbox" name="cardio" id="running" />
+        <label for="running">Біг</label>
+        <input type="checkbox" name="cardio" id="cycling" />
+        <label for="cycling">Велосипед</label>
+        <input type="checkbox" name="cardio" id="jumping_rope" />
+        <label for="jumping_rope">Скакалка</label>
+      </div>
+
+      <label>Які спортивні активності вам подобаються?</label>
+      <div>
+        <input type="checkbox" name="sports" id="football" />
+        <label for="football">Футбол</label>
+        <input type="checkbox" name="sports" id="swimming" />
+        <label for="swimming">Плавання</label>
+        <input type="checkbox" name="sports" id="basketball" />
+        <label for="basketball">Баскетбол</label>
+      </div>
+
+      <input type="submit" value="Підтвердити" id="submit" />
+    </form>
+  </body>
+</html>

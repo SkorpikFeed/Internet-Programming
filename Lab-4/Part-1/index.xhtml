@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:xforms="http://www.w3.org/2002/xforms">
+  <head>
+    <title>XForm - Фізичне випробування</title>
+  </head>
+  <body>
+    <h2>Форма фізичного випробування</h2>
+
+    <xforms:model>
+      <xforms:instance id="formData">
+        <data>
+          <name/>
+          <surname/>
+          <email/>
+          <age/>
+          <gender/>
+          <exercises/>
+          <cardio/>
+          <sports/>
+        </data>
+      </xforms:instance>
+    </xforms:model>
+
+    <xforms:input ref="name">
+      <xforms:label>Введіть ваше ім'я:</xforms:label>
+    </xforms:input>
+
+    <xforms:input ref="surname">
+      <xforms:label>Введіть ваше прізвище:</xforms:label>
+    </xforms:input>
+
+    <xforms:input ref="email">
+      <xforms:label>Введіть вашу пошту:</xforms:label>
+      <xforms:alert>Неправильний email</xforms:alert>
+    </xforms:input>
+
+    <xforms:input ref="age">
+      <xforms:label>Введіть ваш вік:</xforms:label>
+      <xforms:constraints>. &gt;= 1 and . &lt;= 100</xforms:constraints>
+    </xforms:input>
+
+    <xforms:select1 ref="gender">
+      <xforms:label>Оберіть стать:</xforms:label>
+      <xforms:item>
+        <xforms:label>Чоловік</xforms:label>
+        <xforms:value>male</xforms:value>
+      </xforms:item>
+      <xforms:item>
+        <xforms:label>Жінка</xforms:label>
+        <xforms:value>female</xforms:value>
+      </xforms:item>
+    </xforms:select1>
+
+    <xforms:select ref="exercises">
+      <xforms:label>Які вправи ви регулярно виконуєте?</xforms:label>
+      <xforms:item>
+        <xforms:label>Віджимання</xforms:label>
+        <xforms:value>pushups</xforms:value>
+      </xforms:item>
+      <xforms:item>
+        <xforms:label>Присідання</xforms:label>
+        <xforms:value>squats</xforms:value>
+      </xforms:item>
+      <xforms:item>
+        <xforms:label>Планка</xforms:label>
+        <xforms:value>plank</xforms:value>
+      </xforms:item>
+    </xforms:select>
+
+    <xforms:select ref="cardio">
+      <xforms:label>Які види кардіо ви практикуєте?</xforms:label>
+      <xforms:item>
+        <xforms:label>Біг</xforms:label>
+        <xforms:value>running</xforms:value>
+      </xforms:item>
+      <xforms:item>
+        <xforms:label>Велосипед</xforms:label>
+        <xforms:value>cycling</xforms:value>
+      </xforms:item>
+      <xforms:item>
+        <xforms:label>Скакалка</xforms:label>
+        <xforms:value>jumping_rope</xforms:value>
+      </xforms:item>
+    </xforms:select>
+
+    <xforms:submit>
+      <xforms:label>Підтвердити</xforms:label>
+    </xforms:submit>
+    
+  </body>
+</html>
