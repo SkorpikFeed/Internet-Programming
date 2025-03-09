@@ -1,36 +1,44 @@
 document.addEventListener("DOMContentLoaded", function () {
   const form = document.getElementById("formPage");
-  const savedDataContainer = document.getElementById("savedData");
+  // const savedDataContainer = document.getElementById("savedData");
 
   // Функція для завантаження збережених даних
   function loadSavedData() {
-    const saved = localStorage.getItem("formData");
-    if (saved) {
-      const data = JSON.parse(saved);
-      displaySavedData(data);
-    }
+    const keys = Object.keys(localStorage);
+    keys.forEach((key) => {
+      if (key.startsWith("formData_")) {
+        const data = JSON.parse(localStorage.getItem(key));
+        displaySavedData(data);
+      }
+    });
   }
 
   // Функція для відображення збережених даних
   function displaySavedData(data) {
-    savedDataContainer.innerHTML = `
-            <p><strong>Ім'я:</strong> ${data.name}</p>
-            <p><strong>Прізвище:</strong> ${data.surname}</p>
-            <p><strong>Email:</strong> ${data.email}</p>
-            <p><strong>Вік:</strong> ${data.age}</p>
-            <p><strong>Стать:</strong> ${data.gender}</p>
-            <p><strong>Вправи:</strong> ${getSelectedOptions(
-              data.exercises
-            )}</p>
-            <p><strong>Кардіо:</strong> ${getSelectedOptions(data.cardio)}</p>
-            <p><strong>Спортивні активності:</strong> ${getSelectedOptions(
-              data.sports
-            )}</p>
-            <button onclick="exportJSON()">Експортувати JSON</button>
-            <button onclick="exportXML()">Експортувати XML</button>
-            <button onclick="fillForm()">Заповнити форму</button>
-            <button onclick="deleteData()">Видалити</button>
-        `;
+    document.getElementById("table").style.display = "table";
+    const dataDiv = document.getElementById("result");
+    dataDiv.innerHTML += `      <tr>
+        <td>${data.name}</td>
+        <td>${data.surname}</td>
+        <td>${data.email}</td>
+        <td>${data.age}</td>
+        <td>${data.gender}</td>
+        <td>${getSelectedOptions(data.exercises)}</td>
+        <td>${getSelectedOptions(data.cardio)}</td>
+        <td>${getSelectedOptions(data.sports)}</td>
+        <td><button onclick="exportXML('${
+          data.id
+        }')">Експортувати XML</button></td>
+        <td><button onclick="exportJSON('${
+          data.id
+        }')">Експортувати JSON</button></td>
+        <td><button onclick="fillForm('${
+          data.id
+        }')">Заповнити форму</button></td>
+        <td class="last"><button onclick="deleteData('${
+          data.id
+        }')">Видалити</button></td>
+      </tr>`;
   }
 
   // Функція для отримання вибраних опцій
@@ -43,6 +51,7 @@ document.addEventListener("DOMContentLoaded", function () {
     event.preventDefault();
 
     const formData = {
+      id: `formData_${new Date().getTime()}`,
       name: document.getElementById("name").value,
       surname: document.getElementById("surname").value,
       email: document.getElementById("email").value,
@@ -53,7 +62,7 @@ document.addEventListener("DOMContentLoaded", function () {
       sports: getCheckedItems("sports"),
     };
 
-    localStorage.setItem("formData", JSON.stringify(formData));
+    localStorage.setItem(formData.id, JSON.stringify(formData));
     displaySavedData(formData);
   });
 
@@ -70,20 +79,20 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // Функція для експорту JSON
-  window.exportJSON = function () {
-    const saved = localStorage.getItem("formData");
+  window.exportJSON = function (id) {
+    const saved = localStorage.getItem(id);
     if (saved) {
       const blob = new Blob([saved], { type: "application/json" });
       const link = document.createElement("a");
       link.href = URL.createObjectURL(blob);
-      link.download = "formData.json";
+      link.download = `${id}.json`;
       link.click();
     }
   };
 
   // Функція для експорту XML
-  window.exportXML = function () {
-    const saved = localStorage.getItem("formData");
+  window.exportXML = function (id) {
+    const saved = localStorage.getItem(id);
     if (saved) {
       const data = JSON.parse(saved);
       const xml = `<formData>
@@ -100,14 +109,14 @@ document.addEventListener("DOMContentLoaded", function () {
       const blob = new Blob([xml], { type: "application/xml" });
       const link = document.createElement("a");
       link.href = URL.createObjectURL(blob);
-      link.download = "formData.xml";
+      link.download = `${id}.xml`;
       link.click();
     }
   };
 
   // Функція для заповнення форми з даними
-  window.fillForm = function () {
-    const saved = localStorage.getItem("formData");
+  window.fillForm = function (id) {
+    const saved = localStorage.getItem(id);
     if (saved) {
       const data = JSON.parse(saved);
       document.getElementById("name").value = data.name;
@@ -119,6 +128,10 @@ document.addEventListener("DOMContentLoaded", function () {
       ).checked = true;
 
       // Заповнити вибрані вправи
+      const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+      checkboxes.forEach((checkbox) => {
+        checkbox.checked = false;
+      });
       data.exercises.forEach((exercise) => {
         document.getElementById(exercise).checked = true;
       });
@@ -132,9 +145,10 @@ document.addEventListener("DOMContentLoaded", function () {
   };
 
   // Функція для видалення збережених даних
-  window.deleteData = function () {
-    localStorage.removeItem("formData");
-    savedDataContainer.innerHTML = "<p>Дані відсутні</p>";
+  window.deleteData = function (id) {
+    localStorage.removeItem(id);
+    document.getElementById("result").innerHTML = "";
+    loadSavedData();
   };
 
   loadSavedData();
