@@ -29,3 +29,34 @@ form > label {
 #submit {
   background-color: rgb(77, 194, 77);
 }
+
+table {
+  font-size: 15px;
+  width: 82%;
+  padding: 10px;
+  border: 1px solid;
+  border-radius: 15px;
+}
+
+th,
+td {
+  text-align: left;
+  border-collapse: collapse;
+  border-right: 1px solid;
+  padding: 3px;
+  border-collapse: collapse;
+}
+
+.last {
+  border-right: none;
+}
+
+tbody button {
+  border-radius: 5px;
+  border: 1px solid;
+  width: 100%;
+}
+div label {
+  width: 15vw;
+  display: inline-block;
+}

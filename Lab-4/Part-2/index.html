@@ -63,7 +63,7 @@
       <input type="submit" value="Підтвердити" id="submit" />
     </form>
     <h2>Збережені дані</h2>
-    <table id="table">
+    <table id="table" style="display: none">
       <thead>
         <tr>
           <th>Ім'я</th>
@@ -73,29 +73,15 @@
           <th>Стать</th>
           <th>Вправи</th>
           <th>Кардіо</th>
-          <th>Спортивні активності</th>
+          <th>Активності</th>
           <th>JSON</th>
           <th>XML</th>
           <th>Заповнити</th>
-          <th>Видалити</th>
+          <th class="last">Видалити</th>
         </tr>
       </thead>
-
-      <!-- <tr>
-        <td>${data.name}</td>
-        <td>${data.surname}</td>
-        <td>${data.email}</td>
-        <td>${data.age}</td>
-        <td>${data.gender}</td>
-        <td>${getSelectedOptions(data.exercises)}</td>
-        <td>${getSelectedOptions(data.cardio)}</td>
-        <td>${getSelectedOptions(data.sports)}</td>
-        <td><button onclick="exportXML('${data.id}')">Експортувати XML</button></td>
-        <td><button onclick="fillForm('${data.id}')">Заповнити форму</button></td>
-        <td><button onclick="deleteData('${data.id}')">Видалити</button></td>
-      </tr> -->
+      <tbody id="result"></tbody>
     </table>
-    <div id="savedData"></div>
   </body>
   <script src="script.js"></script>
 </html>
