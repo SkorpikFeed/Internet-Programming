@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Лабораторна робота 2-1 - REST API</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Лабораторна робота 2-1</h1>
+        <p>REST API для роботи з даними людей</p>
+      </header>
+
+      <main>
+        <!-- Форма для додавання/редагування -->
+        <section class="form-section">
+          <h2>Додати/Редагувати людину</h2>
+          <form id="personForm">
+            <input type="hidden" id="personId" />
+
+            <div class="form-group">
+              <label for="name">Ім'я:</label>
+              <input type="text" id="name" name="name" required />
+            </div>
+
+            <div class="form-group">
+              <label for="age">Вік:</label>
+              <input type="number" id="age" name="age" min="1" max="120" required />
+            </div>
+
+            <div class="form-group">
+              <label for="height">Зріст (см):</label>
+              <input type="number" id="height" name="height" min="50" max="250" required />
+            </div>
+
+            <div class="form-group">
+              <label for="weight">Вага (кг):</label>
+              <input type="number" id="weight" name="weight" min="20" max="300" required />
+            </div>
+
+            <div class="form-group">
+              <label for="gender">Стать:</label>
+              <select id="gender" name="gender" required>
+                <option value="">Оберіть стать</option>
+                <option value="Чоловік">Чоловік</option>
+                <option value="Жінка">Жінка</option>
+              </select>
+            </div>
+
+            <div class="form-buttons">
+              <button type="submit" id="submitBtn">Додати</button>
+              <button type="button" id="cancelBtn" onclick="cancelEdit()">Скасувати</button>
+            </div>
+          </form>
+        </section>
+
+        <!-- Список людей -->
+        <section class="people-section">
+          <h2>Список людей</h2>
+          <div class="controls">
+            <button onclick="loadPeople()" class="btn-refresh">Оновити список</button>
+            <button onclick="downloadXML()" class="btn-xml">Завантажити XML</button>
+          </div>
+          <div id="peopleList" class="people-list"></div>
+        </section>
+      </main>
+
+      <!-- Модальне вікно для повідомлень -->
+      <div id="messageModal" class="modal">
+        <div class="modal-content">
+          <span class="close" onclick="closeModal()">&times;</span>
+          <p id="modalMessage"></p>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

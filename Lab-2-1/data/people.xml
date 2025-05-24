@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE people [
+    <!ELEMENT people (person*)>
+    <!ELEMENT person (name, age, height, weight, gender)>
+    <!ATTLIST person id ID #REQUIRED>
+    <!ELEMENT name (#PCDATA)>
+    <!ELEMENT age (#PCDATA)>
+    <!ELEMENT height (#PCDATA)>
+    <!ELEMENT weight (#PCDATA)>
+    <!ELEMENT gender (#PCDATA)>
+]>
+<people>
+    <person id="p1748029261785">
+        <name>Іван Іванович Оновлений</name>
+        <age>26</age>
+        <height>180</height>
+        <weight>75</weight>
+        <gender>Чоловік</gender>
+    </person>
+    <person id="p1748029309474">
+        <name>Марія Петрівна Коваленко</name>
+        <age>32</age>
+        <height>165</height>
+        <weight>58</weight>
+        <gender>Жінка</gender>
+    </person>
+    <person id="p1748029318808">
+        <name>Олексій Миколайович Шевченко</name>
+        <age>45</age>
+        <height>175</height>
+        <weight>80</weight>
+        <gender>Чоловік</gender>
+    </person>
+    <person id="p1748077421731">
+        <name>Тарас</name>
+        <age>50</age>
+        <height>134</height>
+        <weight>46</weight>
+        <gender>Чоловік</gender>
+    </person>
+</people>
